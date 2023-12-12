@@ -3,7 +3,7 @@ import tempfile
 import eventlet
 from eventlet import wsgi
 eventlet.monkey_patch(os=False)
-from utils import classify
+from utils import classify, classify1
 from flask import Flask, render_template, request
 import traceback
 from flask_cors import CORS
@@ -32,7 +32,7 @@ def predict():
         if plant == 'potato': 
             class_name, confidence = classify(temp_file_path)
         elif plant == 'tomato': 
-            class_name, confidence = classify(temp_file_path)
+            class_name, confidence = classify1(temp_file_path)
         else : 
             # class_name, confidence = classify(temp_file_path)
             pass
