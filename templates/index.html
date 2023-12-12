@@ -57,8 +57,7 @@
             .then(response => response.json())
             .then(data => {
                 console.log('Response:', data);
-                document.getElementById('result').innerText = "Result " + data.result + "classification confidence" + data.confidence;
-                
+                document.getElementById('result').innerText = "Result " + " " + data.result +  " " + "classification confidence" + " " + data.confidence;               
             })
             .catch(error => {
                 console.error('Error:', error);
