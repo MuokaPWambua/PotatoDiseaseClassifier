@@ -36,4 +36,4 @@ def predict():
         traceback.print_exc()
 
 if __name__ == '__main__':
-    wsgi.server(eventlet.listen(('0.0.0.0', 80)), app)
+    wsgi.server(eventlet.listen(('0.0.0.0', 5000)), app)
