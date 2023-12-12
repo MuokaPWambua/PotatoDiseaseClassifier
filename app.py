@@ -32,8 +32,9 @@ def predict():
         class_name, confidence = classify(temp_file_path)
         os.remove(temp_file_path)
         return {'result': class_name, "confidenence":confidence}
-    except:
+    except Exception as e:
         traceback.print_exc()
+        return {'result': 'failed', "confidenence":'null', 'error':str(e) }
 
 if __name__ == '__main__':
     wsgi.server(eventlet.listen(('0.0.0.0', 5000)), app)
