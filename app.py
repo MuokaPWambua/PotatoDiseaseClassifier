@@ -31,7 +31,7 @@ def predict():
         
         class_name, confidence = classify(temp_file_path)
         os.remove(temp_file_path)
-        return {'result': class_name, "confidenence":confidence}
+        return {'result': class_name, "confidence":confidence}
     except Exception as e:
         traceback.print_exc()
         return {'result': 'failed', "confidenence":'null', 'error':str(e) }
