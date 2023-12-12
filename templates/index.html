@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .center-container {
+            
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin:0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .spaceY{
+            margin:2rem 0 2rem 0;
+        }
+        
+    </style>
+    <title>Potato Health</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1 align="center">Hello, Welcome To Potato Health Check</h1>
+            <h2 align="center">Please share a potato leaf image</h2>
+            <div class="center-container spaceY">
+                <input type="file" id="file" name="image" required>
+            </div>
+            <div class="center-container">
+                <button id="submit">Check</button>
+            </div>
+        <p align="center" id="result"></p>
+        </div>
+    </div> 
+    <script>
+        function uploadFile() {
+            alert('clicked')
+            var fileInput = document.getElementById('file');
+            var file = fileInput.files[0];
+
+            var formData = new FormData();
+            formData.append('image', file);
+
+            fetch('/classify', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Response:', data);
+                document.getElementById('result').innerText = "Result " + data.result + "classification confidence" + data.confidence;
+                
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result').innerText = 'Error occurred during file upload.';
+            });
+        }
+        document.getElementById("submit").addEventListener("click", uploadFile)
+
+    </script>
+</body>
+</html>
