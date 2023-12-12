@@ -10,7 +10,7 @@ def load_and_preprocess_image(image_path):
     return img_array
 
 
-def classify(image, model= tf.keras.models.load_model("")):
+def classify(image, model= tf.keras.models.load_model("1")):
     # Make prediction using the loaded model
     image_array = load_and_preprocess_image(image)
     class_names=['Potato Early blight', 'Potato Late blight', 'Potato healthy']
