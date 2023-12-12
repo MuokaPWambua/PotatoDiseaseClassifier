@@ -30,9 +30,15 @@
 <body>
     <div class="container">
         <div>
-            <h1 align="center">Hello, Welcome To Potato Health Check</h1>
-            <h2 align="center">Please share a potato leaf image</h2>
+            <h1 align="center">Hello, Welcome To Potato|Tomato Health Check</h1>
+            <h2 align="center">Please share a potato|tomato leaf image</h2>
+
             <div class="center-container spaceY">
+                <select id="plant" name="plant">
+                    <option value="potato">Potato</option>
+                    <option value="tomato">Tomato</option>
+                </select>
+                <br/>
                 <input type="file" id="file" name="image" required>
             </div>
             <div class="center-container">
@@ -57,7 +63,7 @@
             .then(response => response.json())
             .then(data => {
                 console.log('Response:', data);
-                document.getElementById('result').innerText = " Result " + " " + data.result +  " \n " + " classification confidence " + " " + data.confidence;               
+                document.getElementById('result').innerText = " Result: " + " " + data.result +  " " + " Classification Confidence: " + " " + data.confidence;               
             })
             .catch(error => {
                 console.error('Error:', error);
