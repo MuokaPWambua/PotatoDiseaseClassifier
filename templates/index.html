@@ -30,15 +30,15 @@
 <body>
     <div class="container">
         <div>
-            <h1 align="center">Hello, Welcome To Potato|Tomato Health Check</h1>
-            <h2 align="center">Please share a potato|tomato leaf image</h2>
+            <h1 align="center">Hello, Welcome To Potato | Tomato Health Check</h1>
+            <h2 align="center">Please share a Potato | Tomato leaf image</h2>
 
             <div class="center-container spaceY">
                 <input type="file" id="file" name="image" required>
             </div>
             <div class="center-container spaceY">
                 <p><strong>Plant Type:<strong><p>
-                <select id="plant" name="plant" style="width:30%; padding:2px;">
+                <select id="plant" name="plant" style="width:30%; padding:2px; border: 1px solid grey;">
                     <option value="potato">Potato</option>
                     <option value="tomato">Tomato</option>
                 </select>
@@ -65,7 +65,7 @@
             .then(response => response.json())
             .then(data => {
                 console.log('Response:', data);
-                document.getElementById('result').innerText = " Result: " + " " + data.result +  " " + " Classification Confidence: " + " " + data.confidence;               
+                document.getElementById('result').innerText = " Result: " + " " + data.result +  " " + "\nClassification Confidence: " + " " + data.confidence;               
             })
             .catch(error => {
                 console.error('Error:', error);
