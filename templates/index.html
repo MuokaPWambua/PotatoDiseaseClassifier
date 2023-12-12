@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            background-image: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/static/bg.jpg) ';
+            background: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/static/bg.jpg) no-repeat center';
             background-size: cover;
-            background-position: center;
             color:white;
-            background-repeat: no-repeat;
             margin: 0; /* Remove default body margin */
             padding: 0; /* Remove default body padding */
         }
@@ -63,9 +61,14 @@
             
             var fileInput = document.getElementById('file');
             var file = fileInput.files[0];
+            var plant = document.getElementById('plant');
+            var selectedOption = plant.options[plant.selectedIndex];
 
+        // Get the value of the selected option
+            var selectedValue = selectedOption.value;
             var formData = new FormData();
             formData.append('image', file);
+            formData.append('plant', selectedValue)
             document.getElementById('result').innerText = "Processing... ";               
 
             fetch('/classify', {

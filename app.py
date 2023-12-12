@@ -20,6 +20,7 @@ def predict():
     try:
         
         image = request.files.get('image')
+        plant = request.form.get('plant')
         if image is None:
             return {'message': 'upload another image'}
         
@@ -28,8 +29,13 @@ def predict():
 
         # Save the file temporarily
         image.save(temp_file_path)
-        
-        class_name, confidence = classify(temp_file_path)
+        if plant == 'potato': 
+            class_name, confidence = classify(temp_file_path)
+        elif plant == 'tomato': 
+            class_name, confidence = classify(temp_file_path)
+        else : 
+            # class_name, confidence = classify(temp_file_path)
+            pass
         os.remove(temp_file_path)
         return {'result': class_name, "confidence":confidence}
     except Exception as e:
