@@ -51,12 +51,13 @@
     </div> 
     <script>
         function uploadFile() {
-            alert('clicked')
+            
             var fileInput = document.getElementById('file');
             var file = fileInput.files[0];
 
             var formData = new FormData();
             formData.append('image', file);
+            document.getElementById('result').innerText = "Processing... ";               
 
             fetch('/classify', {
                 method: 'POST',
