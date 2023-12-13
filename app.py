@@ -34,10 +34,14 @@ def predict():
         elif plant == 'tomato': 
             class_name, confidence = classify1(temp_file_path)
         else : 
-            # class_name, confidence = classify(temp_file_path)
-            pass
+            class_name, confidence = None, 0
+            
         os.remove(temp_file_path)
+        
+        if confidence < 80:
+            return {'result': 'Please upload another clear leaf image', "confidenence":'null'}
         return {'result': class_name, "confidence":confidence}
+    
     except Exception as e:
         traceback.print_exc()
         return {'result': 'failed', "confidenence":'null', 'error':str(e) }
