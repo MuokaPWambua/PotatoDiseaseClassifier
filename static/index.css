@@ -1,0 +1,175 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0% 3%;
+    overflow: hidden;
+    background-color: #8fcc95c8; /* Background color for the navigation bar */
+}
+.navdiv{
+    width: 100%;
+    padding: auto;
+}
+.navbar ul{
+    list-style-type: none;
+    position: relative;
+    left:30%;
+}
+.navitem {
+    float: left;
+}
+
+.navitem a {
+    display: block;
+    color: rgb(2, 5, 2);
+    text-align: center;
+    padding: 5px 16px;
+    text-decoration: none;
+    font-size: larger;
+    
+}
+.navitem a:hover {
+    background-color: #f2f5f3;
+    border-radius: 15px; /* Background color on hover */
+}
+#logo{
+    padding: 4px 0px;
+    height: 4%;
+    width: 4%;
+}
+.detect{
+    border: 2px solid black;
+    margin: 2% 20%;
+    padding: 2% 5%;
+}
+h2{
+    text-align: center;
+}
+
+
+
+/* Style the form and form elements */
+
+input[type="file"] {
+    margin-bottom: 1%;
+    border: 1px solid #ccc;
+    padding: 0px;
+    border-radius: 5px;
+}
+input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.image-preview {
+    display: none;
+    margin-top: 20px;
+    
+}
+
+
+
+.slideshow-container{
+    
+    margin: 1% 1%;
+}
+.slideshow-container img{
+    height:600px;
+    width: 100%;
+    
+}
+.mySlides {
+    display: none;
+}
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #888;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active {
+    background-color: #007BFF;
+}
+
+
+.inner-container{
+    border:2px solid black;
+    margin: 1% 30%;
+    background-color: #96c8728e;
+}
+.input-container{
+    padding: 0% 25%;
+}
+#select_type{
+    
+    display: flex;
+}
+p{
+    display: block;
+}
+#plant{
+    margin: 0% 10%;
+}
+
+.upload-form-container {
+    max-width: 400px;
+    margin: 1% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+#preview-image{
+    height:auto;
+    width: 100%;
+}
+.button-container{
+    position: relative;
+    left:40%;
+    margin-top: 3%;
+}
+
+.Remedy{
+    border: 2px solid black;
+    border-radius: 10px;
+    margin:1% 25%;
+}
+#Remedy_info{
+    padding:0% 2%;
+}
+.footer {
+    margin-top:5%;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Optional: Style links in the footer */
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    
+}
+.social-icons a:hover{
+    color:rgb(54, 216, 29);
+}

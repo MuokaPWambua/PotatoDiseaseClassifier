@@ -1,94 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            background: url('/static/bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color:white;
-            margin: 0; /* Remove default body margin */
-            padding: 0; /* Remove default body padding */
-        }
-        .center-container {
-            
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin:0;
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .spaceY{
-            margin:2rem 0 2rem 0;
-        }
-        
-    </style>
-    <title>Potato Health</title>
+    <title>Farmer's Friend</title>
+    <link rel="icon" href="static/farmerlogo1.png" type="static/image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/index.css">
 </head>
 <body>
-    <div class="container">
-        <div>
-            <h1 align="center">Hello 👋, Welcome To Potato | Tomato Health Check 🌱👨‍🔬</h1>
-            <h2 align="center">Please share a Potato | Tomato leaf image</h2>
+    <nav class="navbar">
+        <img id="logo" src="static/farmerlogo1.png">
+        <div class="navdiv">
+        <ul>
+            <li class="navitem"><a href="#">Home</a></li>
+            <li class="navitem"><a href="#container-id" onclick="smoothScroll(event)">Detect</a></li>
+            <li class="navitem"><a href="#">Remedy</a></li>
+            <li class="navitem"><a href="#footer-id" onclick="smoothScroll(event)">Contact</a></li>
+        </ul>
+        </div>
+    </nav>
+    <div class="slideshow-container">
+        <!-- Slides -->
+        <div class="mySlides">
+            <img src="static/image1.jpeg" alt="Image 1">
+        </div>
+        <div class="mySlides">
+            <img src="static/image2.avif" alt="Image 2">
+        </div>
+        <div class="mySlides">
+            <img src="static/iamge3.jpeg" alt="Image 3">
+        </div>
 
-            <div class="center-container spaceY">
+        <!-- Navigation dots -->
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+    <div class="container" id="container-id">
+        
+            <h1 align="center">Hello 👋, Welcome To Potato | Tomato Health Check 🌱👨‍🔬</h1>
+            <div class="inner-container">
+            <h2 align="center">Please share a Potato | Tomato leaf image</h2>
+            <h4>Make sure that image is clear with uniform background.</h4>
+            <div class="input-container">
+            <div class="center-container">
                 <input type="file" id="file" name="image" required>
             </div>
-            <div class="center-container spaceY">
+            <div class="center-container" id="select_type">
                 <p><strong>Plant Type:<strong><p>
-                <select id="plant" name="plant" style="width:30%; padding:2px; border: 1px solid grey;">
+                <select id="plant" name="plant">
                     <option value="potato">Potato</option>
                     <option value="tomato">Tomato</option>
                 </select>
             </div>
-            <div class="center-container">
+            
+            <div class="image-preview">
+                <h3>Uploaded Image Preview</h3>
+                <img id="preview-image" src="" alt="Uploaded Image">
+            </div>
+            <div class="button-container">
                 <button id="submit">Check</button>
             </div>
         <p align="center" id="result"></p>
         </div>
+        </div>
     </div> 
-    <script>
-        function uploadFile() {
+    <div class="Remedy">
+        <h2>Below are the preventive measure : </h2>
+        <p id="Remedy_info">
             
-            var fileInput = document.getElementById('file');
-            var file = fileInput.files[0];
-            var plant = document.getElementById('plant');
-            var selectedOption = plant.options[plant.selectedIndex];
-
-        // Get the value of the selected option
-            var selectedValue = selectedOption.value;
-            var formData = new FormData();
-            formData.append('image', file);
-            formData.append('plant', selectedValue)
-            document.getElementById('result').innerText = "Processing... ";               
-
-            fetch('/classify', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Response:', data);
-                document.getElementById('result').innerText = " Result: " + " " + data.result +  " " + "\nClassification Confidence: " + " " + data.confidence;               
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('result').innerText = 'Error occurred during file upload try again file to large.';
-            });
-        }
-        document.getElementById("submit").addEventListener("click", uploadFile)
-
+        </p>
+    </div>
+    <div class="footer" id="footer-id">
+        <p>&copy; 2023 Farmer's Friend</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/YourPage" target="_blank"><i class="fa fa-instagram" style="font-size:36px"></i></a>
+            <a href="https://twitter.com/YourTwitter" target="_blank"><i class="fa fa-twitter" style="font-size:36px"></i></a>
+            <a href="https://www.instagram.com/YourInstagram" target="_blank"><i class="fa fa-facebook" style="font-size:36px"></i></a>
+            <!-- Add more Material Design Icons as needed -->
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <script src="static/index.js">
     </script>
 </body>
 </html>
